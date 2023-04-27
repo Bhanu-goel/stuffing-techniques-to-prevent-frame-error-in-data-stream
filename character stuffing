@@ -1,0 +1,26 @@
+def character_stuffing(data,flag,escape):
+    stuffed_data=""
+    count=0
+    for data in data:
+        if data==flag:
+            count+=1
+            stuffed_data += escape + data
+        
+        elif data==escape:
+            count+=1
+            stuffed_data += escape + data
+        
+        else:
+            stuffed_data += data
+    
+    stuffed_data = flag + stuffed_data + flag
+    
+    return stuffed_data,count
+
+data = input('enter data -> ')
+flag = input('enter flag ->')
+escape = input('enter escape ->')
+
+stuffed_data,count = character_stuffing(data,flag,escape)
+print("stuffed data : ",stuffed_data)
+print("count : ",count)
